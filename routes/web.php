@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/attendance', 'AttendanceController');
-Route::get('/list', 'AttendanceController@list');
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/attendance', 'AttendanceController')->middleware('auth');
+Route::get('/list', 'AttendanceController@list')->middleware('auth');
 // Route::get('/listChecked', 'AttendanceController@listChecked');
