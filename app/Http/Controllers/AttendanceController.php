@@ -70,6 +70,8 @@ class AttendanceController extends Controller
                 $attendance->save();
             }
 
+            broadcast(new StatusEvent($attendance->id,1))->toOthers();
+
             return 'berhasil';
         }  
     }
