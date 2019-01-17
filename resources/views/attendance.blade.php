@@ -20,5 +20,5 @@
         </div>
     </div>
 </div> --}}
-<attendance-list></attendance-list>
+<attendance-list tanggal=></attendance-list>
 @endsection

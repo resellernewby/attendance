@@ -67,6 +67,10 @@
             Fire.$on('AfterCreate', () => {
                 this.loadData();
             });
+            Echo.channel('statusChannel')
+            .listen('StatusEvent', (e) => {
+                this.loadData();
+            });
         }
     }
 </script>

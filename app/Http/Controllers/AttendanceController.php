@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\StatusEvent;
 use App\Attendance;
 use App\User;
 use Illuminate\Http\Request;
@@ -112,6 +113,8 @@ class AttendanceController extends Controller
             $attendance->presence = 'tidak';
             $attendance->save();
         }
+
+        broadcast(new StatusEvent($attendance->id,1))->toOthers();
         
     }
 
